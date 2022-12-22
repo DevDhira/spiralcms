@@ -1,0 +1,38 @@
+{% extends 'blog/base.html' %}
+{% block body %}
+    <title>Edit Profile</title>
+</head>
+<style>
+  .w-full{
+    width: 140%;
+  }
+</style>
+<body>
+  <center><h1 class="font-bold text-4xl	" >Edit Profile</h1></center>
+
+   <div class="w-full flex align-center"> 
+    <div class="container items-center py-24 mx-auto ">
+       
+      <div class="mt-5 md:mt-0 md:col-span-2">
+          <form  method="POST" class="w-full max-w-lg">
+              {% csrf_token %}
+
+             {% for item in form %}
+             {{item.label_tag}}
+             {{item}} <br>
+             {% endfor %}
+              <input class="inline-flex justify-center py-2 px-4 border border-transparent shadow-sm text-sm font-medium rounded-md text-white bg-indigo-600 hover:bg-indigo-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-indigo-500" type="submit" value="Save Edit">
+          </form>
+        </div>
+  </div>
+   </div>
+
+</body>
+<script >
+document.getElementById('id_firstname').setAttribute('class','appearance-none block w-full bg-gray-200 text-gray-700 border  rounded py-3 px-4 mb-3 leading-tight focus:outline-none focus:bg-white" id="grid-first-name');
+document.getElementById('id_lastname').setAttribute('class','appearance-none block w-full bg-gray-200 text-gray-700 border  rounded py-3 px-4 mb-3 leading-tight focus:outline-none focus:bg-white" id="grid-first-name');
+document.getElementById('id_location').setAttribute('class','mt-1 block w-full py-2 px-3 border border-gray-300 bg-white rounded-md shadow-sm focus:outline-none focus:ring-indigo-500 focus:border-indigo-500 sm:text-sm');
+document.getElementById('id_current_role').setAttribute('class','w-full bg-white rounded border border-gray-300 focus:border-indigo-500 focus:ring-2 focus:ring-indigo-200 text-base outline-none text-gray-700 py-1 px-3 leading-8 transition-colors duration-200 ease-in-out ');
+document.getElementById('id_about').setAttribute('class','mt-1 focus:ring-indigo-500 focus:border-indigo-500 border-2 block w-full shadow-sm sm:text-sm border-gray-300 rounded-md');
+ </script>
+{% endblock %}
